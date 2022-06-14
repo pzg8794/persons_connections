@@ -191,8 +191,8 @@ class Persons(object):
 		Function to get Persons connected by the company and contacts
 		"""
 		connected_persons = []
-		if conn=='company': connected_persons = self.get_connected_persons_by_company(persons, person_id)
-		if conn=='contacts': 
+		if not conn or conn=='company': connected_persons = self.get_connected_persons_by_company(persons, person_id)
+		if not conn or conn=='contacts': 
 			if self.load_persons_entities(persons):
 				connected_persons += self.get_connected_persons_by_contacts(contacts, person_id)
 
