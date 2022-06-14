@@ -186,14 +186,17 @@ class Persons(object):
 
 
 
-	def get_connected_persons(self, persons, contacts, person_id, msg='PART II - Loading Persons Connected'):
+	def get_connected_persons(self, persons, contacts, person_id, conn, msg='PART II - Loading Persons Connected'):
 		"""
 		Function to get Persons connected by the company and contacts
 		"""
-		company_connections = self.get_connected_persons_by_company(persons, person_id)
-		contact_connections = self.get_connected_persons_by_contacts(contacts, person_id)
-		connected_persons 	= set(company_connections + contact_connections)
-		return connected_persons
+		connected_persons = []
+		if conn=='company': connected_persons = self.get_connected_persons_by_company(persons, person_id)
+		if conn=='contacts': 
+			if self.load_persons_entities(persons):
+				connected_persons += self.get_connected_persons_by_contacts(contacts, person_id)
+
+		return set(connected_persons)
 
 
 
