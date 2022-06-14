@@ -8,11 +8,11 @@ python3 test_persons -id 0
 Note: you can use any id from 0 to 3  
 
 # Unit Tests:
-1) Conted Persons by Company:   
+1) Connected Persons by Company:   
 python3 test_persons.py -id 0 -conn company   
 2) Connected Persons by Contacts:  
 python3 test_persons.py -id 0 -conn contacts  
-3) Connted Persons by Company/Contacts:  
+3) Connected Persons by Company/Contacts:  
 python3 test_persons.py -id 0  
 Note: you can use any id from 0 to 3  
 
