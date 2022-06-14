@@ -95,7 +95,7 @@ class Persons(object):
 
 
 
-	def get_connected_persons(self, persons, person_id, msg='PART II - Loading Persons Connected'):
+	def get_connected_persons_by_company(self, persons, person_id, msg='PART II - Loading Persons Connected'):
 		"""
 		Function to get Persons connected by the company and  time
 		i.e. Two Persons are connected if they worked for the same company and their timelines at the company overlap by at least 90 days
@@ -183,6 +183,18 @@ class Persons(object):
 								break
 						if has_number: break
 		return connected_persons
+
+
+
+	def get_connected_persons(self, persons, contacts, person_id, msg='PART II - Loading Persons Connected'):
+		"""
+		Function to get Persons connected by the company and contacts
+		"""
+		company_connections = self.get_connected_persons_by_company(persons, person_id)
+		contact_connections = self.get_connected_persons_by_contacts(contacts, person_id)
+		connected_persons 	= set(company_connections + contact_connections)
+		return connected_persons
+
 
 
 
