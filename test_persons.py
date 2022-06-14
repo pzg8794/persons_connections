@@ -19,8 +19,10 @@ def get_file_data(file_name='persons.json'):
 
 
 if __name__ == "__main__":
+	"""
+	Main function to test each cases layout in requirements to find connected persons
+	"""
 	commands = sys.argv[1:]
-	# print(commands)
 
 	if not commands:
 		print('You must provide a Person Id from the persons.json file located in this directory')
@@ -52,3 +54,12 @@ if __name__ == "__main__":
 			print('i.e. python3 test_persons.py -id 0 -conn contacts')
 			print('i.e. python3 test_persons.py -id 0 -conn company')
 			print('i.e. python3 test_persons.py -id 0\n', e)
+
+# Unit Tests:
+# Conted Persons by Company:
+# python3 test_persons.py -id 0 -conn company
+# Connected Persons by Contacts:
+# python3 test_persons.py -id 0 -conn contacts
+# Connted Persons by Company/Contacts:
+# python3 test_persons.py -id 0
+# Note: you can use any id from 0 to 3
